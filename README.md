@@ -19,3 +19,22 @@ respective pages listed above for more information and the respective Copyright 
 
   prebuilt/arm/SystemWebView.apk
 
+## Fetching the APKs
+
+Run `scripts/fetch_cromite.sh` to download the latest Cromite System WebView
+releases from GitHub. The script places the files in the directories shown above.
+
+```
+$ ./scripts/fetch_cromite.sh
+```
+
+Ensure `jq` is installed on your host system as it is used to parse the release
+information.
+
+## Building a Stub WebView
+
+If you would like to build your own WebView instead of using the prebuilts you
+can build the [Cromite project](https://github.com/uazo/cromite) and generate a
+"stub" WebView package. Place the resulting APKs in the same `prebuilt/*`
+directories to include them in your ROM build.
+
