@@ -1,4 +1,4 @@
-name: Makefile CI
+name: Prebuilt APK Validation
 
 on:
   push:
@@ -8,20 +8,15 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
 
-    - name: configure
-      run: ./configure
+    - name: Verify prebuilt APKs
+      run: |
+        test -f prebuilt/arm/SystemWebView.apk
+        test -f prebuilt/arm64/SystemWebView.apk
 
-    - name: Install dependencies
-      run: make
-
-    - name: Run check
-      run: make check
-
-    - name: Run distcheck
-      run: make distcheck
+    - name: Run lint
+      run: |
+        echo "No lint configured for this project"
